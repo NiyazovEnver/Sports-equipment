@@ -1,0 +1,22 @@
+<ion-view view-title="Список забронированных товаров">
+  <ion-content>
+    <p class="reserved-list__empty-message" ng-if="!array.length">На данный момент нет забронированных товаров</p>
+    <ion-list class="list list-inset">
+
+      <ion-item class="item item-thumbnail-left" ng-repeat="(index, item) in array">
+        <img ng-src="{{item.img}}">
+        <h2 class="reserved-list__title">{{item.name}}</h2>
+        <p class="reserved-list__start-date">Забронировано с {{item.startDate}}</p>
+        <p class="reserrved-list__end-date">по {{item.endDate}}</p>
+
+        <button class="reserved-list__button-delete" ng-click="remove(index)">
+          <ion-icon class="reserved-list__button-delete-icon" name="trash-outline"></ion-icon>
+        </button>
+        <ion-option-button class="button-assertive" ng-click="remove(inv)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

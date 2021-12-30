@@ -1,0 +1,26 @@
+.reserved-list{
+    position: relative;
+
+    &__empty-message{
+        font-size: $empty-message-text;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 20px;
+        padding: 1%;
+    }
+    &__button-delete{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        
+        background: none;
+        
+        border: none;
+
+        &-icon{
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.inventory-detail{
+    hr {
+        height: 12px;
+        border: 0;
+        box-shadow: inset 0 15px 12px -11px rgba(0,0,0,0.15);
+    }
+    &__star-icon{
+        color: var(--star-icon);
+    }
+    &__title{
+        font-size: $phone-font-size;
+    }
+    &__access-reserved{
+        margin-top: 10px;
+    }
+    table{
+        width: 100%;
+    }
+    
+    th{
+        border: 1px solid black;
+    }
+    &__img-wrapper{
+        width: 70%;
+
+        margin: 0 auto;
+    }
+    &__cost-wrapper{
+        display: flex;
+
+        align-items: center;
+        justify-content: space-around;
+
+    }
+    &__reserved{
+        position: fixed;
+        bottom: 10px;
+    }
+    &__сost{
+        width: 150px;
+        
+        text-align: center;
+        vertical-align: center;
+
+        font-size: $cost-size;
+        font-weight: bold;
+        color: var(--font-color);
+        
+    }
+    &__message-warning{
+        color: var(--danger-color);
+    }
+
+   
+    
+}
+

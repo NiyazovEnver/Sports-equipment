@@ -1,0 +1,68 @@
+.contacts{
+    font-weight: 700;
+    &__social{
+        display: flex;
+        justify-content: center;
+        
+        &-link{
+            width: 30px;
+            height: 30px;
+
+            margin-right: 15px;
+
+            color: var(--contacts-link-color);
+        }
+    }
+    &__title{
+        margin-bottom: 10px;
+
+        font-size: $title-size;
+        font-weight: 700;
+        text-align: center;
+
+    }
+    &__status{
+        display: block;
+        
+        margin-bottom: 100px;
+
+        width: 100%;
+        height: 40px;
+
+        padding: 10px;
+
+        color: white;
+        font-weight: 700;
+        text-align: center;
+    }
+    &__location{
+        margin-bottom: 10px;
+
+        font-size: $small-text-size;
+        text-align: center;
+    }
+    &__graphic{
+        text-align: center;
+        text-transform: uppecase;
+    }
+    &__timetable{
+        margin: 0;
+        text-align: center;
+    }
+    &__social-container{
+        position: fixed;
+        
+        bottom: 60px;
+
+        width: 95%;
+
+        
+    }
+}
+.open{
+    
+    background-color: var(--work-color);
+}
+.close{
+    background-color: var(--dont-work-color);
+}

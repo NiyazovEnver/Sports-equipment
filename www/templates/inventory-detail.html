@@ -1,0 +1,84 @@
+<ion-view view-title="{{inv.name}}">
+  <ion-content class="padding inventory-detail">
+    <div ng-show="visible" class="list card">
+      <div class="item">
+        <h2>{{inv.name}}</h2>
+      </div>
+      <div class="item item-body">
+        <img class="inventory-detail__img full-image" ng-src="{{inv.img}}">
+        <div>
+          <p>Тип: {{inv.type}}</p>
+          <p>Сезонность: {{inv.season}}</p>
+          <p class="inventory-detail__availability" ng-if="inv.availability">
+            В наличии
+          </p>
+          <p class="inventory-detail__availability" ng-if="!inv.availability">
+            Нет в наличии
+          </p>
+          <span ng-if="reservedDates.length">Забронированные даты:</span>
+          <p ng-repeat="date in reservedDates">{{date.start}} - {{date.end}}</p>
+        </div>
+        <p>
+          <a href="#" class="subdued">1 Like</a>
+          <a href="#" class="subdued">5 Comments</a>
+          <ion-icon class="inventory-detail__star-icon" name="star"></ion-icon>
+          <ion-icon class="inventory-detail__star-icon" name="star"></ion-icon>
+          <ion-icon class="inventory-detail__star-icon" name="star"></ion-icon>
+          <ion-icon class="inventory-detail__star-icon" name="star"></ion-icon>
+          <ion-icon class="inventory-detail__star-icon" name="star"></ion-icon>
+        </p>
+      </div>
+      <span class="inventory-detail__message-warning" ng-if="!inv.availability">
+        Данный товар нельзя забронировать, так как его нет в наличии
+      </span>
+      <button class="button button-block button-energized inventory-detail__button-reserve" ng-click="toggleReserve()"
+        ng-disabled="!inv.availability">
+        Забронировать
+      </button>
+    </div>
+
+    <form class="list list-inset" ng-show="!visible" id="form">
+      <div class="list">
+        <div class="item item-thumbnail-left">
+          <img class="inventory-detail__img" ng-src="{{inv.img}}">
+          <h2>{{inv.name}}</h2>
+          <p>Цена {{inv.cost}}</p>
+          <p>Тип: {{inv.type}}</p>
+          <p>Сезонность: {{inv.season}}</p>
+          <span ng-if="reservedDates.length">Забронированные даты:</span>
+          <p ng-repeat="date in reservedDates">{{date.start}} - {{date.end}}</p>
+        </div>
+      </div>
+
+      <label class="item item-input">
+        <input ng-model="data.fullName" type="text" placeholder="Фамилия Имя" required max="50" min="1">
+      </label>
+
+      <label class="item item-input">
+        <input ng-model="data.phone" type="tel" placeholder="Номер телефона" required max="12">
+      </label>
+
+      <label class="item item-input">
+        <input ng-model="data.startDate" type="date" placeholder="Дата начала аренды" required>
+      </label>
+
+      <label class="item item-input">
+        <input ng-model="data.endDate" type="date" placeholder="Дата конца аренды" required>
+      </label>
+
+      <button ng-disabled="isButtonDisabled()" ng-click="onSubmit()" class="button button-full button-balanced"
+        type="button">
+        Забронировать
+      </button>
+      <p class="inventory-detail__message-warning" ng-if="accessReserve()">
+        К сожалению, в эти даты товар забронирован. Выберите другую дату
+      </p>
+      <p class="inventory-detail__message-warning" ng-if="checkingCurrentDate()">
+        Дата начала бронирования не может быть раньше сегодняшней даты
+      </p>
+      <p class="inventory-detail__message-warning" ng-if="checkingDateSequence()">
+        Дата начала бронирования не может быть позже даты конца бронирования
+      </p>
+    </form>
+  </ion-content>
+</ion-view>

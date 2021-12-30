@@ -1,0 +1,10 @@
+.inventory-list{
+    &__name{
+        font-size: $phone-font-size;
+    }
+    &__img-wrapper{
+        width: 50%;
+        height: 50%;
+        margin: 0 auto;
+    }
+}

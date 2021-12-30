@@ -1,0 +1,31 @@
+<ion-view view-title="Контакты" class="contacts">
+  <ion-content scroll="false" class="padding">
+    <h2 class="contacts__title">Powerlifter</h2>
+    <span class="contacts__status open" ng-if="status">Открыто</span>
+    <span class="contacts__status close" ng-if="!status">Закрыто</span>
+    <div class="contacts__info">
+      <p class="contacts__location"> Москва, проезд Кирова, дом 12</p>
+      <h4 class="contacts__graphic">ГРАФИК РАБОТЫ</h4>
+      <p class="contacts__timetable"> Пн – пт — с 7:00 до 23:00</p>
+      <p class="contacts__timetable"> Сб — с 10:00 до 17:00</p>
+      <p class="contacts__timetable"> Вс — с 11:00 до 15:00</p>
+    </div>
+
+    <div class="contacts__social-container">
+      <a class="contacts__phone button icon-left ion-android-call button-full button-dark"
+        href="tel:88005553535">Позвоните нам!</a>
+      <div class="contacts__social">
+        <a href="instagram.com">
+          <ion-icon class="contacts__social-link" name="logo-instagram"></ion-icon>
+        </a>
+        <a href="twitter.com">
+          <ion-icon class="contacts__social-link" name="logo-twitter"></ion-icon>
+        </a>
+        <a href="vk.com">
+          <ion-icon class="contacts__social-link" name="logo-vk"></ion-icon>
+        </a>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

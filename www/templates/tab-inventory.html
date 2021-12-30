@@ -1,0 +1,36 @@
+<ion-view view-title="Inventory">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Сортировка по
+        </div>
+        <select ng-model="currentOption" ng-change="changeSelect(currentOption)">
+          <option>Умолчанию</option>
+          <option>Дешевле</option>
+          <option>Дороже</option>
+          <option>Типу</option>
+          <option>Сезонности</option>
+          <option>Наличию</option>
+        </select>
+      </label>
+
+    </div>
+    <ion-list>
+      <!-- <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="inv in inventory" type="item-text-wrap" href="#/tab/inventory/{{inv.id}}"> -->
+
+      <ion-item class="item-remove-animate item-body item-icon-right"
+        ng-repeat="inv in inventory | sortFilter: currentOption" type="item-text-wrap"
+        href="#/tab/inventory/{{inv.id}}">
+        <div class="inventory-list__img-wrapper">
+          <img class="inventory-list__img full-image" ng-src="{{inv.img}}">
+        </div>
+        <h1 class="inventory-list__name">{{inv.name}}</h1>
+        <p class="inventory-list__cost">Цена: {{inv.cost}}</p>
+        <p class="inventory-list__season">Сезонность: <span>{{inv.season}}</span></p>
+        <p class="inventory-list__type">Тип: <span>{{inv.type}}</span></p>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
